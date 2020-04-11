@@ -1,0 +1,20 @@
+<script src="./medias.js"></script>
+<script>
+
+	window.addEventListener('load',()=>{
+
+		document.body.style.backgroundImage='url('+mymedias.get('img/crepon_00.jpg')+')';
+
+		let img2=mymedias.get('img/lap1.jpg').img;
+		document.body.appendChild(img2);
+
+		let dom=document.createElement('textarea');
+		dom.value=mymedias.get('js/test.js').text;
+		document.body.appendChild(dom);
+
+	});
+	var playaud=()=>{
+		mymedias.get('audio/Gantz opening.mp3').audio.play();
+	};
+</script>
+<button onclick="playaud()">audio</button>

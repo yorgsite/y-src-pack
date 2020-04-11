@@ -1,0 +1,24 @@
+{
+  "name": "y-src-pack",
+  "version": "1.0.0",
+  "description": "a js ressources bundler",
+  "main": "YSrcPack.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "keywords": [
+    "nodejs",
+    "node",
+    "bundle",
+    "medias",
+    "ressources",
+    "webpack"
+  ],
+  "author": "yorg",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.1.6",
+    "mime": "^2.4.4",
+    "node-styl": "0.0.6"
+  }
+}
