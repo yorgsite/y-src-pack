@@ -1,39 +1,41 @@
 <script src="./medias.js"></script>
 <script>
+
 	let video;
 	window.addEventListener('load',()=>{
 		if(!window.mymedias){
 			alert('launch command "node test" at the root directory of y-src-pack to generate sources file.');
 			return;
 		}
-
-		document.body.style.backgroundImage='url('+mymedias.get('img/crepon_00.jpg')+')';
+		let imgDir=mymedias.get('img');
+		document.body.style.backgroundImage='url('+imgDir.get('crepon_00.jpg')+')';
 
 		let img2=mymedias.get('img/lap1.jpg').img;
 		document.body.appendChild(img2);
 
-		let textarea=document.createElement('textarea');
-		textarea.value=mymedias.get('js/test.js').text;
-		textarea.cols=62;
-		textarea.rows=9;
-		document.body.appendChild(textarea);
+		document.querySelector('textarea').value=mymedias.get('js/test.js').text;
 
 		video=mymedias.get('video/production ID_3813820.webm').video;
+		video.controls=1;
 		document.body.appendChild(video);
 
 	});
-	var playaud=()=>{
+
+	var playaudio=()=>{
 		mymedias.get('audio/AC_12Str85A-03.mp3').audio.play();
 	};
-	var playvid=()=>{
+	var playvideo=()=>{
 		video.play();
 	};
+
 </script>
 <style>
-	img,video{
+	img,video,textarea{
 		display:block;
 	}
 </style>
-<button onclick="playaud()">play audio</button>
-<button onclick="playvid()">play video</button>
-<br/>
+text file content :
+<textarea cols="62" rows="9"></textarea>
+<hr/>
+<button onclick="playaudio()">play audio</button>
+<button onclick="playvideo()">play video</button>

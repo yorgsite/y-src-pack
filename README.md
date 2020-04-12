@@ -7,7 +7,15 @@ Install :
 ```
 npm install y-src-pack
 ```
-<br/>
+<hr/>
+
+### Demo :
+In command line, launch
+```
+node node_modules/y-src-pack/test
+```
+And open the file **./node_modules/y-src-pack/_test_src/test.html** in your browser.
+<hr/>
 Use in script :
 
 ```javascript
