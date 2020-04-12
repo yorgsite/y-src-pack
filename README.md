@@ -72,4 +72,4 @@ plugins:[
 TODO ...
 
 
-see [test.js](./test.js) and [_test_src/test.html](_test_src/test.html)
+see [test.js](https://github.com/yorgsite/y-src-pack/blob/master/test.js) and [_test_src/test.html](https://github.com/yorgsite/y-src-pack/blob/master/_test_src/test.html)
