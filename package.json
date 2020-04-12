@@ -1,6 +1,6 @@
 {
   "name": "y-src-pack",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "a js ressources bundler",
   "main": "YSrcPack.js",
   "scripts": {
