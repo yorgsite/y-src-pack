@@ -6,6 +6,10 @@
   "scripts": {
     "test": "node test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yorgsite/y-src-pack.git"
+  },
   "keywords": [
     "nodejs",
     "node",
@@ -16,6 +20,10 @@
   ],
   "author": "yorg",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yorgsite/y-src-pack/issues"
+  },
+  "homepage": "https://github.com/yorgsite/y-src-pack#readme",
   "dependencies": {
     "glob": "^7.1.6",
     "mime": "^2.4.4",
