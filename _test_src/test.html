@@ -1,20 +1,39 @@
 <script src="./medias.js"></script>
 <script>
-
+	let video;
 	window.addEventListener('load',()=>{
+		if(!window.mymedias){
+			alert('launch command "node test" at the root directory of y-src-pack to generate sources file.');
+			return;
+		}
 
 		document.body.style.backgroundImage='url('+mymedias.get('img/crepon_00.jpg')+')';
 
 		let img2=mymedias.get('img/lap1.jpg').img;
 		document.body.appendChild(img2);
 
-		let dom=document.createElement('textarea');
-		dom.value=mymedias.get('js/test.js').text;
-		document.body.appendChild(dom);
+		let textarea=document.createElement('textarea');
+		textarea.value=mymedias.get('js/test.js').text;
+		textarea.cols=62;
+		textarea.rows=9;
+		document.body.appendChild(textarea);
+
+		video=mymedias.get('video/production ID_3813820.webm').video;
+		document.body.appendChild(video);
 
 	});
 	var playaud=()=>{
 		mymedias.get('audio/AC_12Str85A-03.mp3').audio.play();
 	};
+	var playvid=()=>{
+		video.play();
+	};
 </script>
-<button onclick="playaud()">audio</button>
+<style>
+	img,video{
+		display:block;
+	}
+</style>
+<button onclick="playaud()">play audio</button>
+<button onclick="playvid()">play video</button>
+<br/>

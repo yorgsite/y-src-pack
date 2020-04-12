@@ -217,13 +217,14 @@ const YSrcPack=function(){
 		return JSON.stringify(this.data,0,'\t');
 	};
 	this.toFile=function(tgtFile,jsname,mute){
+		let str=jsname===true?this.toJson():this.toCode(jsname);
 		this.loglist.push(barstyl('║')+' WRITE '+boldstyl(tgtFile));
+		this.loglist.push(barstyl('║')+' size  '+boldstyl((str.length/1024).toFixed(1))+' ko');
 		if(!mute){
 			console.log(barstyl('╔═')+' YSrcPack '+barstyl('════════'));
 			while(this.loglist.length)console.log(this.loglist.shift());
 			console.log(barstyl('╚═══════════════════'));
 		}
-		let str=jsname===true?this.toJson():this.toCode(jsname);
 		fs.writeFileSync(tgtFile,str,'utf-8');
 	};
 };
