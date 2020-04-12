@@ -1,8 +1,7 @@
+const path = require('path');
 const YSrcPack = require('./YSrcPack.js');
 
-
 let fp = new YSrcPack();
-const path = require('path');
 
 /*
 	value determines the tgt file content:
