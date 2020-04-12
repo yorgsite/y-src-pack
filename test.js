@@ -1,7 +1,7 @@
 const path = require('path');
 const YSrcPack = require('./YSrcPack.js');
 
-let fp = new YSrcPack();
+let sp = new YSrcPack();
 
 /*
 	value determines the tgt file content:
@@ -16,14 +16,14 @@ let tgtFile=path.resolve(__dirname,'_test_src/medias.js');
 let test_as_script=function(){
 
 	// --- dir method
-	// fp.collect(path.resolve(__dirname,'_test_src/medias'));
+	// sp.collect(path.resolve(__dirname,'_test_src/medias'));
 
 	// --- glob method
-	fp.glob(path.resolve(__dirname,'_test_src/medias'),['**/*.gif','**/*.png']);
-	fp.glob(path.resolve(__dirname,'_test_src/medias'),'**/*.jpg');
+	sp.glob(path.resolve(__dirname,'_test_src/medias'),['**/*.gif','**/*.png']);
+	sp.glob(path.resolve(__dirname,'_test_src/medias'),'**/*.jpg');
 
 	// --- write
-	fp.toFile(tgtFile,jsname);
+	sp.toFile(tgtFile,jsname);
 };
 
 

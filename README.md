@@ -13,17 +13,17 @@ Use in script :
 ```javascript
 const YSrcPack = require('y-src-pack');
 const path = require('path');
-let fp = new YSrcPack();
+let sp = new YSrcPack();
 // ...
 ```
 
 with commands :
 ```javascript
 // collect all sources
-fp.collect(path.resolve(__dirname,'path/to/sources'));
+sp.collect(path.resolve(__dirname,'path/to/sources'));
 // use glob expressions
-fp.glob(path.resolve(__dirname,'path/to/other/sources'),expr);
-fp.glob(path.resolve(__dirname,'path/to/other/sources2'),[expr1,expr2]);
+sp.glob(path.resolve(__dirname,'path/to/other/sources'),expr);
+sp.glob(path.resolve(__dirname,'path/to/other/sources2'),[expr1,expr2]);
 
 // every files are merged as having the same root dir
 
@@ -36,7 +36,7 @@ jsname='mymedias';
 // - for node module : falsy
 jsname=0;// or just nothing :p
 
-fp.toFile(path.resolve(__dirname,'path/to/result.js'),jsname);
+sp.toFile(path.resolve(__dirname,'path/to/result.js'),jsname);
 ```
 
 with options :
