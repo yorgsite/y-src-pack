@@ -15,6 +15,9 @@ let vmcode=function(){
 		for(let k in data){
 			this[k]=data[k];
 		}
+		// for prototype override
+		Object.defineProperty(this,'API',{get:()=>VFile});
+
 		Object.defineProperty(this,'text',{get:()=>_uri2text(this.uri)});
 		Object.defineProperty(this,'json',{get:()=>_uri2json(this.uri)});
 		Object.defineProperty(this,'img',{get:()=>_uri2img(this.uri)});
@@ -29,6 +32,7 @@ let vmcode=function(){
 			return [];
 		}
 	};
+
 	VFile.prototype.get=function(path){
 		let arr=((path instanceof Array)?path:path.split('/')).filter(v=>v!=='.');
 		let tmp=this;
@@ -37,14 +41,29 @@ let vmcode=function(){
 			if(tmp.files&&(arr[i] in tmp.files)){
 				tmp=tmp.files[arr[i]];
 			}else {
-				throw('\nVFile Error:\npath "'+arr[i]+'" not found.')
+				throw('\nVFile Error:\npath "'+arr[i]+'" not found.');
 			}
 		}
 		return new VFile(tmp);
 	};
+
+	VFile.prototype.exists=function(path){
+		let arr=((path instanceof Array)?path:path.split('/')).filter(v=>v!=='.');
+		let tmp=this;
+		for(let i=0;i<arr.length;i++){
+			if(tmp.files&&(arr[i] in tmp.files)){
+				tmp=tmp.files[arr[i]];
+			}else {
+				return false;
+			}
+		}
+		return true;
+	};
+
 	VFile.prototype.toString=function(){
 		return this.uri;
 	};
+
 	VFile.prototype.find=function(filter){
 		if(typeof(filter)!=='function'){
 			let n=filter;
@@ -60,10 +79,7 @@ let vmcode=function(){
 	};
 
 	let _uri2text=function(uri){
-		var request = new XMLHttpRequest();
-		request.open('GET',uri, false);
-		request.send(null);
-		return request.responseText;
+		return atob(uri.split(';base64,').pop());
 	};
 	let _uri2json=function(uri){
 		return JSON.parse(_uri2text(uri));

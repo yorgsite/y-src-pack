@@ -15,10 +15,10 @@ let tgtFile=path.resolve(__dirname,'_test_src/medias.js');
 
 let test_as_script=function(){
 
-	// --- dir method
+	// --- dir method (collect) (can be an array of strings)
 	// sp.collect(path.resolve(__dirname,'_test_src/medias'));
 
-	// --- glob method
+	// --- glob method (can be an array of objects)
 	sp.glob(path.resolve(__dirname,'_test_src/medias'),['**/*.gif','**/*.png']);
 	sp.glob(path.resolve(__dirname,'_test_src/medias'),'**/*.jpg');
 
@@ -32,10 +32,9 @@ let test_as_options=function(){
 
 	YSrcPack.process({
 
-		// --- dir method
+		// --- dir method (collect) (can be an array of strings)
 		dir:path.resolve(__dirname,'_test_src/medias'),
-
-		// --- glob method
+		// --- glob method (can be an array of objects)
 		// glob:{
 		// 	dir:path.resolve(__dirname,'_test_src/medias'),
 		// 	glob:['**/*.gif','**/*.jpg']

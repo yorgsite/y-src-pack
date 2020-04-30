@@ -1,6 +1,8 @@
 # y-src-pack
 
-A js ressources bundler for web, nodejs and webpack
+A js ressources bundler for web, nodejs and webpack.
+
+Bundle any ressource file an application may require an exploit them syncronously via an API.
 
 Install :
 
@@ -16,6 +18,9 @@ node node_modules/y-src-pack/test
 ```
 And open the file **./node_modules/y-src-pack/_test_src/test.html** in your browser.
 <hr/>
+
+### Introduction :
+
 Use in script :
 
 ```javascript
@@ -27,8 +32,9 @@ let sp = new YSrcPack();
 
 with commands :
 ```javascript
-// collect all sources
+// collect all sources from a folder
 sp.collect(path.resolve(__dirname,'path/to/sources'));
+
 // use glob expressions
 sp.glob(path.resolve(__dirname,'path/to/other/sources'),expr);
 sp.glob(path.resolve(__dirname,'path/to/other/sources2'),[expr1,expr2]);
@@ -50,9 +56,9 @@ sp.toFile(path.resolve(__dirname,'path/to/result.js'),jsname);
 with options :
 ```javascript
 YSrcPack.process({
-	// --- dir method
+	// --- dir method (collect) (can be an array of strings)
 	dir:path.resolve(__dirname,'path/to/sources'),
-	// --- glob method
+	// --- glob method (can be an array of objects)
 	glob:{
 		dir:path.resolve(__dirname,'path/to/other/sources'),
 		glob:[expr1,expr2]
