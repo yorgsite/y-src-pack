@@ -47,3 +47,9 @@ let test_as_options=function(){
 };
 
 test_as_options();
+
+
+var url = path.resolve(__dirname,'_test_src/test.html');
+console.log('\nopen '+url);
+var start = (process.platform == 'darwin'? 'open': process.platform == 'win32'? 'start': 'xdg-open');
+require('child_process').exec(start + ' ' + url);
