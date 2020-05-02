@@ -16,7 +16,7 @@ In command line, launch
 ```
 node node_modules/y-src-pack/test
 ```
-And open the file **./node_modules/y-src-pack/_test_src/test.html** in your browser.
+And open the file **node_modules/y-src-pack/_test_src/test.html** in your browser.
 <hr/>
 
 ### Introduction :
