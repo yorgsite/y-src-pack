@@ -33,6 +33,22 @@ let vmcode=function(){
 		}
 	};
 
+	VFile.prototype.all=function(){
+		let fa_iter=(obj)=>{
+			if(obj.mime==='dir'){
+				let dn=obj.name?obj.name+'/':'';
+				let r=[];
+				for(let k in obj.files){
+					r=r.concat(fa_iter(obj.files[k]).map(v=>dn+v));
+				}
+				return r;
+			}else {
+				return [obj.name];
+			}
+		};
+		return fa_iter(this);
+	};
+
 	VFile.prototype.get=function(path){
 		let arr=((path instanceof Array)?path:path.split('/')).filter(v=>v!=='.');
 		let tmp=this;
@@ -67,7 +83,7 @@ let vmcode=function(){
 	VFile.prototype.find=function(filter){
 		if(typeof(filter)!=='function'){
 			let n=filter;
-			filter=(v)=>v.name===n;
+			filter=(v)=>v.name&&v.name.indexOf(n)>-1;
 		}
 		if(filter(this))return this;
 		if(this.mime==='dir'){
@@ -96,7 +112,6 @@ let vmcode=function(){
 		let vdo=document.createElement('video');
 		vdo.src=uri;
 		return vdo;
-		// return new Video(uri);
 	};
 
 	let _root_="%DATA%";
