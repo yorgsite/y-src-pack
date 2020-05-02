@@ -7,11 +7,15 @@
 			alert('launch command "node test" at the root directory of y-src-pack to generate sources file.');
 			return;
 		}
+		console.log('all bundled files:',mymedias.all());
+		console.log('does "img/blank.png" exists ? :',mymedias.exists("img/blank.png"));
+		console.log('does "img/notHere.png" exists ? :',mymedias.exists("img/notHere.png"));
+
+
 		let imgDir=mymedias.get('img');
 		document.body.style.backgroundImage='url('+imgDir.get('crepon_00.jpg')+')';
 
-		let img2=mymedias.get('img/lap1.jpg').img;
-		document.body.appendChild(img2);
+		document.body.appendChild(mymedias.get('img/lap1.jpg').img);
 
 		document.querySelector('textarea').value=mymedias.get('js/test.js').text;
 
