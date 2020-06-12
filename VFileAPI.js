@@ -89,7 +89,10 @@ let vmcode=function(){
 	};
 
 	let _uri2text=function(uri){
-		return atob(uri.split(';base64,').pop());
+		return decodeURIComponent(atob(uri.split(';base64,').pop())
+		.split('')
+		.map(c=>'%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+		.join(''));
 	};
 	let _uri2json=function(uri){
 		return JSON.parse(_uri2text(uri));
