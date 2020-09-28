@@ -6,27 +6,42 @@ let vmcomments=[
 
 let vmcode=function(){
 
+	/**
+	* @parameter {object} data data provided by the packer.
+	@constructor
+	*/
 	let VFile=function(data){
 		for(let k in data)this[k]=data[k];
-
-		// for prototype override
-		Object.defineProperty(this,'API',{get:()=>VFile,enumerable:true});
-		// classic files formats
-		Object.defineProperty(this,'text',{get:()=>_uri2text(this.uri),enumerable:true});
-		Object.defineProperty(this,'json',{get:()=>_uri2json(this.uri),enumerable:true});
-		Object.defineProperty(this,'img',{get:()=>_uri2img(this.uri),enumerable:true});
-		Object.defineProperty(this,'audio',{get:()=>_uri2audio(this.uri),enumerable:true});
-		Object.defineProperty(this,'video',{get:()=>_uri2video(this.uri),enumerable:true});
 	};
+	/** @property {VFile.constructor} VFile.API for prototype override. */
+	Object.defineProperty(VFile.prototype,'API',{get:function(){return VFile;},enumerable:true});
+	// classic files formats getters
+	/** @property {string} VFile.text content text. */
+	Object.defineProperty(VFile.prototype,'text',{get:function(){return _uri2text(this.uri);},enumerable:true});
+	/** @property {object} VFile.json content json. */
+	Object.defineProperty(VFile.prototype,'json',{get:function(){return _uri2json(this.uri);},enumerable:true});
+	/** @property {HTMLImageElement} VFile.image content image. */
+	Object.defineProperty(VFile.prototype,'img',{get:function(){return _uri2img(this.uri);},enumerable:true});
+	/** @property {HTMLAudioElement} VFile.audio content audio. */
+	Object.defineProperty(VFile.prototype,'audio',{get:function(){return _uri2audio(this.uri);},enumerable:true});
+	/** @property {HTMLVideoElement} VFile.video content video. */
+	Object.defineProperty(VFile.prototype,'video',{get:function(){return _uri2video(this.uri);},enumerable:true});
 
-	VFile.prototype.list=function(){
+	/**
+	get the folder files list
+	@return {array} if this element is a folder the current dir file list, else an empty list
+	*/
+	VFile.prototype.dir=function(){
 		if(this.mime==='dir'){
 			return Object.keys(this.files);
 		}else {
 			return [];
 		}
 	};
-
+	/**
+	get the folder files and subfolder files list
+	@return {array} if this element is a folder the whole dir file list, else an empty list.
+	*/
 	VFile.prototype.all=function(){
 		let fa_iter=(obj)=>{
 			if(obj.mime==='dir'){
@@ -43,6 +58,11 @@ let vmcode=function(){
 		return fa_iter(this);
 	};
 
+	/**
+	get child file item by it's path.
+	* @parameter {string} path path from this dir down to a dir or a file.
+	@return {VFile} a new VFile item.
+	*/
 	VFile.prototype.get=function(path){
 		let arr=((path instanceof Array)?path:path.split('/')).filter(v=>v!=='.');
 		let tmp=this;
@@ -57,6 +77,11 @@ let vmcode=function(){
 		return new VFile(tmp);
 	};
 
+	/**
+	verify if the child path is valid.
+	* @parameter {string} path path from this dir down to a dir or a file.
+	@return {boolean} true if the the ressource exists.
+	*/
 	VFile.prototype.exists=function(path){
 		let arr=((path instanceof Array)?path:path.split('/')).filter(v=>v!=='.');
 		let tmp=this;
@@ -70,10 +95,19 @@ let vmcode=function(){
 		return true;
 	};
 
+	/**
+	Merge with strings as file uri.
+	@return {string} the file uri.
+	*/
 	VFile.prototype.toString=function(){
 		return this.uri;
 	};
 
+	/**
+	Find VFile by filtering.
+	* @parameter {function||string} filter get fist file name containing **filter** or with witch **filter(data)** returns true.
+	@return {VFile|undefined} a VFile if found.
+	*/
 	VFile.prototype.find=function(filter){
 		if(typeof(filter)!=='function'){
 			let n=filter;

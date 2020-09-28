@@ -28,5 +28,9 @@
     "glob": "^7.1.6",
     "mime": "^2.4.4",
     "node-styl": "0.0.6"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "^6.0.1",
+    "recast": "^0.19.1"
   }
 }

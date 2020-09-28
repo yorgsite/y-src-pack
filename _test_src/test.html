@@ -1,45 +1,57 @@
-<script src="./medias.js"></script>
-<script>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width">
+		<title>test y-src-pack</title>
+		<script src="./medias.js"></script>
+		<script>
 
-	let video;
-	window.addEventListener('load',()=>{
-		if(!window.mymedias){
-			alert('launch command "node test" at the root directory of y-src-pack to generate sources file.');
-			return;
-		}
-		console.log('all bundled files:',mymedias.all());
-		console.log('does "img/blank.png" exists ? :',mymedias.exists("img/blank.png"));
-		console.log('does "img/notHere.png" exists ? :',mymedias.exists("img/notHere.png"));
+			let video;
+			window.addEventListener('load',()=>{
+				if(!window.mymedias){
+					alert('launch command "node test" at the root directory of y-src-pack to generate sources file.');
+					return;
+				}
+				console.log('all bundled files:',mymedias.dir());
+				console.log('all bundled files:',mymedias.all());
+				console.log('does "img/blank.png" exists ? :',mymedias.exists("img/blank.png"));
+				console.log('does "img/notHere.png" exists ? :',mymedias.exists("img/notHere.png"));
 
 
-		let imgDir=mymedias.get('img');
-		document.body.style.backgroundImage='url('+imgDir.get('crepon_00.jpg')+')';
+				let imgDir=mymedias.get('img');
+				document.body.style.backgroundImage='url('+imgDir.get('crepon_00.jpg')+')';
 
-		document.body.appendChild(mymedias.get('img/lap1.jpg').img);
+				document.body.appendChild(mymedias.get('img/lap1.jpg').img);
 
-		document.querySelector('textarea').value=mymedias.get('js/test.js').text;
+				document.querySelector('textarea').value=mymedias.get('js/test.js').text;
 
-		video=mymedias.get('video/production ID_3813820.webm').video;
-		video.controls=1;
-		document.body.appendChild(video);
+				video=mymedias.get('video/production ID_3813820.webm').video;
+				video.controls=1;
+				document.body.appendChild(video);
 
-	});
+			});
 
-	var playaudio=()=>{
-		mymedias.get('audio/AC_12Str85A-03.mp3').audio.play();
-	};
-	var playvideo=()=>{
-		video.play();
-	};
+			var playaudio=()=>{
+				mymedias.get('audio/AC_12Str85A-03.mp3').audio.play();
+			};
+			var playvideo=()=>{
+				video.play();
+			};
 
-</script>
-<style>
-	img,video,textarea{
-		display:block;
-	}
-</style>
-text file content :
-<textarea cols="62" rows="9"></textarea>
-<hr/>
-<button onclick="playaudio()">play audio</button>
-<button onclick="playvideo()">play video</button>
+		</script>
+		<style>
+			img,video,textarea{
+				display:block;
+			}
+		</style>
+	</head>
+	<body>
+		text file content :
+		<textarea cols="62" rows="9"></textarea>
+		<hr/>
+		<button onclick="playaudio()">play audio</button>
+		<button onclick="playvideo()">play video</button>
+
+	</body>
+</html>
