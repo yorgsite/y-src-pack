@@ -107,7 +107,7 @@ Property
 
 <hr/>
 
-#### <a name="tgt_VFile.prototype.dir"></a> ![](https://via.placeholder.com/15/6600ee/000000?text=+) .dir
+#### <a name="tgt_VFile.prototype.dir"></a> ![](reference_src/md-icon_function.png) .dir
 
 
 get the folder files list
@@ -120,7 +120,7 @@ get the folder files list
 
 <hr/>
 
-#### <a name="tgt_VFile.prototype.all"></a> ![](https://via.placeholder.com/15/6600ee/000000?text=+) .all
+#### <a name="tgt_VFile.prototype.all"></a> ![](reference_src/md-icon_function.png) .all
 
 
 get the folder files and subfolder files list
@@ -133,7 +133,7 @@ get the folder files and subfolder files list
 
 <hr/>
 
-#### <a name="tgt_VFile.prototype.get"></a> ![](https://via.placeholder.com/15/6600ee/000000?text=+) .get
+#### <a name="tgt_VFile.prototype.get"></a> ![](reference_src/md-icon_function.png) .get
 
 
 get child file item by it's path.
@@ -147,7 +147,7 @@ get child file item by it's path.
 
 <hr/>
 
-#### <a name="tgt_VFile.prototype.exists"></a> ![](https://via.placeholder.com/15/6600ee/000000?text=+) .exists
+#### <a name="tgt_VFile.prototype.exists"></a> ![](reference_src/md-icon_function.png) .exists
 
 
 verify if the child path is valid.
@@ -161,7 +161,7 @@ verify if the child path is valid.
 
 <hr/>
 
-#### <a name="tgt_VFile.prototype.toString"></a> ![](https://via.placeholder.com/15/6600ee/000000?text=+) .toString
+#### <a name="tgt_VFile.prototype.toString"></a> ![](reference_src/md-icon_function.png) .toString
 
 
 Merge with strings as file uri.
@@ -174,7 +174,7 @@ Merge with strings as file uri.
 
 <hr/>
 
-#### <a name="tgt_VFile.prototype.find"></a> ![](https://via.placeholder.com/15/6600ee/000000?text=+) .find
+#### <a name="tgt_VFile.prototype.find"></a> ![](reference_src/md-icon_function.png) .find
 
 
 Find VFile by filtering.
@@ -190,4 +190,4 @@ Find VFile by filtering.
 
 ### <a name='main_legends'></a> Legends
 
-![](https://via.placeholder.com/15/ff0000/000000?text=+) : constructor<br/>![](https://via.placeholder.com/15/6600ee/000000?text=+) : method<br/>![](https://via.placeholder.com/15/158900/000000?text=+) : parameter<br/>![](https://via.placeholder.com/15/ee9900/000000?text=+) : return<br/>![](https://via.placeholder.com/15/0089E0/000000?text=+) : property
+![](https://via.placeholder.com/15/ff0000/000000?text=+) : constructor<br/>![](reference_src/md-icon_function.png) : method<br/>![](https://via.placeholder.com/15/158900/000000?text=+) : parameter<br/>![](https://via.placeholder.com/15/ee9900/000000?text=+) : return<br/>![](https://via.placeholder.com/15/0089E0/000000?text=+) : property
