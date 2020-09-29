@@ -16,92 +16,92 @@
 
 <hr/>
 
-#### <a name="tgt_VFile"></a> ![](https://via.placeholder.com/15/ff0000/000000?text=+) VFile
+#### <a name="tgt_VFile"></a> ![](reference_src/md-icon_factory.png) VFile
 
 
 
 
 
 `VFile(data)`
-+ ![](https://via.placeholder.com/15/158900/000000?text=+) `object` **data** : data provided by the packer.
++ ![](reference_src/md-icon_input.png) `object` **data** : data provided by the packer.
 
 [▲](#main_menu)
 
 <hr/>
 
-#### <a name="tgt_VFile.API"></a> ![](https://via.placeholder.com/15/0089E0/000000?text=+) .API
+#### <a name="tgt_VFile.API"></a> ![](reference_src/md-icon_cube.png) .API
 
 
 
 
 
 Property
-+ ![](https://via.placeholder.com/15/0089E0/000000?text=+) `VFile.constructor` **[VFile].API** : for prototype override.
++ ![](reference_src/md-icon_cube.png) `VFile.constructor` **[VFile].API** : for prototype override.
 
 [▲](#main_menu)
 
 <hr/>
 
-#### <a name="tgt_VFile.text"></a> ![](https://via.placeholder.com/15/0089E0/000000?text=+) .text
+#### <a name="tgt_VFile.text"></a> ![](reference_src/md-icon_cube.png) .text
 
 
 
 
 
 Property
-+ ![](https://via.placeholder.com/15/0089E0/000000?text=+) `string` **[VFile].text** : content text.
++ ![](reference_src/md-icon_cube.png) `string` **[VFile].text** : content text.
 
 [▲](#main_menu)
 
 <hr/>
 
-#### <a name="tgt_VFile.json"></a> ![](https://via.placeholder.com/15/0089E0/000000?text=+) .json
+#### <a name="tgt_VFile.json"></a> ![](reference_src/md-icon_cube.png) .json
 
 
 
 
 
 Property
-+ ![](https://via.placeholder.com/15/0089E0/000000?text=+) `object` **[VFile].json** : content json.
++ ![](reference_src/md-icon_cube.png) `object` **[VFile].json** : content json.
 
 [▲](#main_menu)
 
 <hr/>
 
-#### <a name="tgt_VFile.image"></a> ![](https://via.placeholder.com/15/0089E0/000000?text=+) .image
+#### <a name="tgt_VFile.image"></a> ![](reference_src/md-icon_cube.png) .image
 
 
 
 
 
 Property
-+ ![](https://via.placeholder.com/15/0089E0/000000?text=+) `HTMLImageElement` **[VFile].image** : content image.
++ ![](reference_src/md-icon_cube.png) `HTMLImageElement` **[VFile].image** : content image.
 
 [▲](#main_menu)
 
 <hr/>
 
-#### <a name="tgt_VFile.audio"></a> ![](https://via.placeholder.com/15/0089E0/000000?text=+) .audio
+#### <a name="tgt_VFile.audio"></a> ![](reference_src/md-icon_cube.png) .audio
 
 
 
 
 
 Property
-+ ![](https://via.placeholder.com/15/0089E0/000000?text=+) `HTMLAudioElement` **[VFile].audio** : content audio.
++ ![](reference_src/md-icon_cube.png) `HTMLAudioElement` **[VFile].audio** : content audio.
 
 [▲](#main_menu)
 
 <hr/>
 
-#### <a name="tgt_VFile.video"></a> ![](https://via.placeholder.com/15/0089E0/000000?text=+) .video
+#### <a name="tgt_VFile.video"></a> ![](reference_src/md-icon_cube.png) .video
 
 
 
 
 
 Property
-+ ![](https://via.placeholder.com/15/0089E0/000000?text=+) `HTMLVideoElement` **[VFile].video** : content video.
++ ![](reference_src/md-icon_cube.png) `HTMLVideoElement` **[VFile].video** : content video.
 
 [▲](#main_menu)
 
@@ -114,7 +114,7 @@ get the folder files list
 
 
 `[VFile].dir()`
-+ ![](https://via.placeholder.com/15/ee9900/000000?text=+) **return**<br/> `array` : if this element is a folder the current dir file list, else an empty list
++ ![](reference_src/md-icon_output.png) **return**<br/> `array` : if this element is a folder the current dir file list, else an empty list
 
 [▲](#main_menu)
 
@@ -127,7 +127,7 @@ get the folder files and subfolder files list
 
 
 `[VFile].all()`
-+ ![](https://via.placeholder.com/15/ee9900/000000?text=+) **return**<br/> `array` : if this element is a folder the whole dir file list, else an empty list.
++ ![](reference_src/md-icon_output.png) **return**<br/> `array` : if this element is a folder the whole dir file list, else an empty list.
 
 [▲](#main_menu)
 
@@ -140,8 +140,8 @@ get child file item by it's path.
 
 
 `[VFile].get(path)`
-+ ![](https://via.placeholder.com/15/158900/000000?text=+) `string` **path** : path from this dir down to a dir or a file.
-+ ![](https://via.placeholder.com/15/ee9900/000000?text=+) **return**<br/> `VFile` : a new VFile item.
++ ![](reference_src/md-icon_input.png) `string` **path** : path from this dir down to a dir or a file.
++ ![](reference_src/md-icon_output.png) **return**<br/> `VFile` : a new VFile item.
 
 [▲](#main_menu)
 
@@ -154,8 +154,8 @@ verify if the child path is valid.
 
 
 `[VFile].exists(path)`
-+ ![](https://via.placeholder.com/15/158900/000000?text=+) `string` **path** : path from this dir down to a dir or a file.
-+ ![](https://via.placeholder.com/15/ee9900/000000?text=+) **return**<br/> `boolean` : true if the the ressource exists.
++ ![](reference_src/md-icon_input.png) `string` **path** : path from this dir down to a dir or a file.
++ ![](reference_src/md-icon_output.png) **return**<br/> `boolean` : true if the the ressource exists.
 
 [▲](#main_menu)
 
@@ -168,7 +168,7 @@ Merge with strings as file uri.
 
 
 `[VFile].toString()`
-+ ![](https://via.placeholder.com/15/ee9900/000000?text=+) **return**<br/> `string` : the file uri.
++ ![](reference_src/md-icon_output.png) **return**<br/> `string` : the file uri.
 
 [▲](#main_menu)
 
@@ -181,8 +181,8 @@ Find VFile by filtering.
 
 
 `[VFile].find(filter)`
-+ ![](https://via.placeholder.com/15/158900/000000?text=+) `function||string` **filter** : get fist file name containing **filter** or with witch **filter(data)** returns true.
-+ ![](https://via.placeholder.com/15/ee9900/000000?text=+) **return**<br/> `VFile|undefined` : a VFile if found.
++ ![](reference_src/md-icon_input.png) `function||string` **filter** : get fist file name containing **filter** or with witch **filter(data)** returns true.
++ ![](reference_src/md-icon_output.png) **return**<br/> `VFile|undefined` : a VFile if found.
 
 [▲](#main_menu)
 
@@ -190,4 +190,4 @@ Find VFile by filtering.
 
 ### <a name='main_legends'></a> Legends
 
-![](https://via.placeholder.com/15/ff0000/000000?text=+) : constructor<br/>![](reference_src/md-icon_function.png) : method<br/>![](https://via.placeholder.com/15/158900/000000?text=+) : parameter<br/>![](https://via.placeholder.com/15/ee9900/000000?text=+) : return<br/>![](https://via.placeholder.com/15/0089E0/000000?text=+) : property
+![](reference_src/md-icon_factory.png) : constructor<br/>![](reference_src/md-icon_function.png) : method<br/>![](reference_src/md-icon_input.png) : parameter<br/>![](reference_src/md-icon_output.png) : return<br/>![](reference_src/md-icon_cube.png) : property
