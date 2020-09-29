@@ -128,8 +128,12 @@ const YSrcPack=function(){
 		cookDatas(this.data);
 		let json=JSON.stringify(this.data,0,'\t');
 		let jstgt=jsname?'var '+jsname:'module.exports';
+		let apicode=(api.code+'')
+		.split('/**')
+		.map((v,i)=>i>0?v.split('*/')[1]:v)
+		.join('');
 		let code=api.comments.map(v=>'// '+v).join('\n')
-		+'\n\n'+jstgt+'=('+api.code+')();';
+		+'\n\n'+jstgt+'=('+apicode+')();';
 		return code.replace('"%DATA%"',json);
 	};
 	this.toJson=function(){
