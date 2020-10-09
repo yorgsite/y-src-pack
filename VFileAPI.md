@@ -1,3 +1,14 @@
+# Api reference
+
+The **VFile** API is a file like system for your resources.<br/>
+
+Resource files and directories are all instances of **VFile**.<br/>
+
+Your bundled js file is the root directory.<br/>
+
+<hr/>
+
+
 ### <a name='main_menu'></a> Menu
 
 + [VFile](#tgt_VFile)

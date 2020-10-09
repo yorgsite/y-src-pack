@@ -85,7 +85,7 @@ plugins:[
 ```
 <hr/>
 
- ### Api reference
+### Api reference
 
 See the packed files api [here](https://github.com/yorgsite/y-src-pack/blob/master/VFileAPI.md).
 
