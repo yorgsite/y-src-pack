@@ -10,6 +10,7 @@ let vmcomments=[
 let vmcode=function(){
 
 	/**
+	* API provided for the bundled sources.
 	* @parameter {object} data data provided by the packer.
 	@constructor
 	*/
@@ -17,7 +18,13 @@ let vmcode=function(){
 		for(let k in data)this[k]=data[k];
 	};
 
-	/** @property {VFile.constructor} VFile.API for prototype override. */
+	/** @property {string} VFile.name the file name. */
+	/** @property {string} VFile.mime the file mime type or 'dir' if it is a directory. */
+	/** @property {string} VFile.size the file size. */
+	/** @property {string} VFile.uri the file base64 uri. */
+
+
+	/** @property {constructor} VFile.API for prototype override. */
 	Object.defineProperty(VFile.prototype,'API',{get:function(){return VFile;},enumerable:true});
 	// classic files formats getters
 	/** @property {string} VFile.text content text. */
