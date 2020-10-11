@@ -204,7 +204,7 @@ Property
 get the folder files list
 
 
-`new [VFile].dir()`
+`[VFile].dir()`
 + ![](reference_src/md-icon_output.png) **return**<br/> `array` : if this element is a folder the current dir file list, else an empty list
 
 [▲](#main_menu)
@@ -217,7 +217,7 @@ get the folder files list
 get the folder files and subfolder files list
 
 
-`new [VFile].all()`
+`[VFile].all()`
 + ![](reference_src/md-icon_output.png) **return**<br/> `array` : if this element is a folder the whole dir file list, else an empty list.
 
 [▲](#main_menu)
@@ -230,7 +230,7 @@ get the folder files and subfolder files list
 get child file item by it's path.
 
 
-`new [VFile].get(path)`
+`[VFile].get(path)`
 + ![](reference_src/md-icon_input.png) `string` **path** : path from this dir down to a dir or a file.
 + ![](reference_src/md-icon_output.png) **return**<br/> `VFile` : a new VFile item.
 
@@ -244,7 +244,7 @@ get child file item by it's path.
 verify if the child path is valid.
 
 
-`new [VFile].exists(path)`
+`[VFile].exists(path)`
 + ![](reference_src/md-icon_input.png) `string` **path** : path from this dir down to a dir or a file.
 + ![](reference_src/md-icon_output.png) **return**<br/> `boolean` : true if the the ressource exists.
 
@@ -258,7 +258,7 @@ verify if the child path is valid.
 Merge with strings as file uri.
 
 
-`new [VFile].toString()`
+`[VFile].toString()`
 + ![](reference_src/md-icon_output.png) **return**<br/> `string` : the file uri.
 
 [▲](#main_menu)
@@ -271,7 +271,7 @@ Merge with strings as file uri.
 Find VFile by filtering.
 
 
-`new [VFile].find(filter)`
+`[VFile].find(filter)`
 + ![](reference_src/md-icon_input.png) `function||string` **filter** : get fist file name containing **filter** or with witch **filter(data)** returns true.
 + ![](reference_src/md-icon_output.png) **return**<br/> `VFile|undefined` : a VFile if found.
 
