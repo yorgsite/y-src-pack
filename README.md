@@ -39,21 +39,21 @@ And open the file **node_modules/y-src-pack/_test_src/test.html** in your browse
 ### <a name="tgt_options"></a> Options
 
 + Options
-	+ dir `*`: `string|Array<string>|undefined`<br/>
+	+ **dir** `*`: `string|Array<string>|undefined`<br/>
 	dir or list of dirs to parse.
-	+ glob `*`: `object|Array<object>|undefined`<br/>
+	+ **glob** `*`: `object|Array<object>|undefined`<br/>
 	object or list of objects to parse with glob.
-		+ dir : `string`<br/>
+		+ **dir** : `string`<br/>
 		glob working dir.
-		+ glob: `string|Array<string>`<br/>
+		+ **glob**: `string|Array<string>`<br/>
 		glob expression.
-	+ tgtFile : `string`<br/>
-	 **mandatory** the generated file path.
-	+ jsName :`string|boolean|undefined`<br/>
+	+ **tgtFile** : `string`<br/>
+	 the generated file path.
+	+ **jsName** :`string|boolean|undefined`<br/>
 	 for node : **undefined** (do not set),<br/>
  	 for json : **true**,<br/>
  	 for web : **string** as api root var name.
-	+ typescript (beta) : `boolean`<br/>
+	+ **typescript** : `boolean` (beta)<br/>
 	 compile as typescript API if true.
 
 `*` : At least one of **dir** or **glob** must be set.
