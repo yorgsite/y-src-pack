@@ -8,10 +8,11 @@ Bundle any ressource file an application may require an exploit them syncronousl
 
 +  [Install](#tgt_install)
 +  [Demo](#tgt_demo)
-+  [Exemples](#tgt_exemples)
-	+  [Commands](#tgt_exemples_cmd)
-	+  [Options](#tgt_exemples_opt)
 +  [Otions](#tgt_options)
++  [Exemples](#tgt_exemples)
+	+  [With commands](#tgt_exemples_cmd)
+	+  [With options](#tgt_exemples_opt)
+	+  [With Webpack](#tgt_exemples_wp)
 +  [API reference](#tgt_api_ref)
 
 <hr/>
@@ -31,9 +32,26 @@ In command line, launch
 node node_modules/y-src-pack/test
 ```
 And open the file **node_modules/y-src-pack/_test_src/test.html** in your browser.
+
+
 <hr/>
 
-### <a name="tgt_exemples"></a> Introduction :
+### <a name="tgt_options"></a> Options
+
++ Options
+	+ dir : `string|Array<string>|undefined` dir or list of dirs to parse.
+	+ glob: `object|Array<object>|undefined` object or list of objects to parse with glob.
+		+ dir : `string` current working dir.
+		+ glob: `string|Array<string>` glob expression.
+	+ tgtFile : `string` **mandatory** the generated file path.
+	+ jsName :`string|boolean|undefined` for node : **undefined** (do not set), for json : **true**, for web : **string** as api root var name.
+	+ typescript (beta) : `boolean` compile as typescript if true.
+
+
+<hr/>
+
+
+### <a name="tgt_exemples"></a> Exemples :
 
 <!-- Use in script : -->
 
@@ -83,7 +101,7 @@ YSrcPack.process({
 });
 ```
 
-with **webpack** (same options) :
+<a name="tgt_exemples_wp"></a>with **webpack** (same options) :
 ```javascript
 // in webpack.config.js
 // ...
@@ -97,19 +115,6 @@ plugins:[
 // ...
 
 ```
-<hr/>
-
-### <a name="tgt_options"></a> Options
-
-+ Options
-	+ dir : `string|Array<string>|undefined` dir or list of dirs to parse.
-	+ glob: `object|Array<object>|undefined` object or list of objects to parse with glob.
-		+ dir : `string` current working dir.
-		+ glob: `string|Array<string>` glob expression.
-	+ tgtFile : `string` **mandatory** the generated file path.
-	+ jsName :`string|boolean|undefined` for node : **undefined** (do not set), for json : **true**, for web : **string** as api root var name.
-	+ typescript (beta) : `boolean` compile as typescript if true.
-
 
 <hr/>
 
