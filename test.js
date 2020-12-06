@@ -11,7 +11,7 @@ let sp = new YSrcPack();
 */
 let jsname='mymedias';
 let tgtFile=path.resolve(__dirname,'_test_src/medias.js');
-// --------- with script:
+// --------- with script: (this may be deprecated soon in favor of YSrcPack.process)
 
 let test_as_script=function(){
 

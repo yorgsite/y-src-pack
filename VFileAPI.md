@@ -1,36 +1,4 @@
-# Api reference
-
-The **VFile** API is a file like system for your resources.<br/>
-
-Resource files and directories are all instances of **VFile**.<br/>
-
-Your bundled js file is the root directory.<br/>
-
-This documentation is generated from the jsdoc of the API.
-
-
-Node web bundler environment :
-```javascript
-let myMedias=require('./myMedias.js');
-...
-```
-
-Web environment :
-```html
-<script src="./myMedias.js"></script>
-...
-```
-
-exemple
-```javascript
-...
-let img = myMedias.get('path/to/img.png').img;
-document.body.appendChild(img);
-```
-
-see [test.js](https://github.com/yorgsite/y-src-pack/blob/master/test.js) and [_test_src/test.html](https://github.com/yorgsite/y-src-pack/blob/master/_test_src/test.html)
-
-<hr/>
+#
 
 
 ### <a name='main_menu'></a> Menu

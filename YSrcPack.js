@@ -3,94 +3,27 @@ const fs = require('fs');
 const styl=require('node-styl');
 const glob = require('glob');
 
+const {
+	barstyl,
+	dotstyl,
+	boldstyl,
+	f2uri,
+	collect,
+	f2obj,
+	ft2obj,
+	mergeDatas,
+	cookDatas
+} = require('./lib/tools.js');
+const compilejs = require('./lib/compilejs.js');
+const compilets = require('./lib/compilets.js');
 // ---------- generated code
-const api=require('./VFileAPI.js');
+// const api=require('./VFileAPI.js');
 
 
 // ------------- tools
 
-let barstyl=(s)=>styl(s).magenta+'';
-let dotstyl=(s)=>styl(s).yellow.bold+'';
-let boldstyl=(s)=>styl(s).cyan.bold+'';
-
-let f2uri=function(mime,path){
-	let b64=fs.readFileSync(path, {encoding: 'base64'});
-	return `data:${mime};base64,${b64}`;
-};
-let collect=function(root,dirname,fpack){
-	let obj={};
-	let files=fs.readdirSync(dirname);
-	files.forEach(file=> {
-		let path=dirname+'/'+file;
-		let stat=fs.statSync(path);
-		let sobj={};
-		sobj.name=file;
-		if(stat.isDirectory()){
-			sobj.mime='dir';
-			sobj.files=collect(root,path,fpack);
-		}else {
-			fpack.loglist.push(barstyl('║')+dotstyl(' ● ')+path.substr(root.length+1));
-			sobj.mime=mime.getType(path);
-			sobj.size=stat.size;
-			sobj.uri=f2uri(sobj.mime,path);
-		}
-		obj[file]=sobj;
-	});
-
-	return obj;
-};
-let f2obj=function(fpack,rootDir,files){
-	let obj={mime:'dir',files:{}};
-	files.forEach(f=>{
-		fpack.loglist.push(barstyl('║')+dotstyl(' ● ')+f);
-		ft2obj(rootDir,f.split('/'),obj);
-	});
-	return obj;
-};
-let ft2obj=function(rootDir,ftree,obj){
-	let tmp=obj;
-	let i=0,tu;
-	for(;i<ftree.length;i++){
-		tu=ftree[i];
-		if(!(tu in tmp.files)){
-			tmp.files[tu]={};
-		}
-		tmp=tmp.files[tu];
-		tmp.name=tu;
-		if(i<ftree.length-1){
-			tmp.mime='dir';
-			if(!tmp.files)tmp.files={};
-		}else {
-			let path=rootDir+'/'+ftree.join('/');
-			let stat=fs.statSync(path);
-			tmp.mime=mime.getType(path);
-			tmp.size=stat.size;
-			tmp.uri=f2uri(tmp.mime,path);
-		}
-	}
-};
-let mergeDatas=function(tgt,src){
-	if(!tgt||!tgt.mime)return src;
-	if(tgt.mime==='dir'){
-		if(src.mime==='dir'){
-			for(let k in src.files){
-				tgt.files[k]=mergeDatas(tgt.files[k],src.files[k])
-			}
-		}
-	}
-	return tgt;
-};
-let cookDatas=function(data){
-	if(data.mime==='dir'){
-		data.size=0;
-		for(let k in data.files){
-			let st=cookDatas(data.files[k]);
-			data.size+=st.size;
-		}
-	}
-	return data;
-};
 // ------------- core
+
 
 /**
 @constructor
@@ -124,23 +57,15 @@ const YSrcPack=function(){
 		}
 		return this;
 	};
-	this.toCode=function(jsname){
+	this.toCode=function(jsname,typescript){
 		cookDatas(this.data);
-		let json=JSON.stringify(this.data,0,'\t');
-		let jstgt=jsname?'var '+jsname:'module.exports';
-		let apicode=(api.code+'')
-		.split('/**')
-		.map((v,i)=>i>0?v.split('*/')[1]:v)
-		.join('');
-		let code=api.comments.map(v=>'// '+v).join('\n')
-		+'\n\n'+jstgt+'=('+apicode+')();';
-		return code.replace('"%DATA%"',json);
+		return (typescript?compilets:compilejs)(this.data,jsname);
 	};
 	this.toJson=function(){
 		return JSON.stringify(this.data,0,'\t');
 	};
-	this.toFile=function(tgtFile,jsname,mute){
-		let str=jsname===true?this.toJson():this.toCode(jsname);
+	this.toFile=function(tgtFile,jsname,mute,typescript){
+		let str=jsname===true?this.toJson():this.toCode(jsname,typescript);
 		this.loglist.push(barstyl('║')+' WRITE '+boldstyl(tgtFile));
 		this.loglist.push(barstyl('║')+' size  '+boldstyl((str.length/1024).toFixed(1))+' ko');
 		if(!mute){
@@ -152,7 +77,10 @@ const YSrcPack=function(){
 	};
 };
 
-
+/**
+@param {object} options : see README.md
+@param {string} [oldCode] (system) prevent file watching loop.
+*/
 YSrcPack.process=function(options,oldCode){
 	let sp = new YSrcPack();
 	if(options.dir)sp.collect(options.dir);
@@ -160,19 +88,20 @@ YSrcPack.process=function(options,oldCode){
 		sp.glob(options.glob instanceof Array?options.glob:[options.glob]);
 	}
 
+
 	let nukod;
 	if(options.tgtJson){
 		if(typeof(oldCode)==='string'){
 			nukod=sp.toJson();
 			if(oldCode===nukod)return nukod;
 		}
-		sp.toFile(options.tgtJson,true,options.mute);
+		sp.toFile(options.tgtJson,true,options.mute,options.typescript);
 	}else if(options.tgtFile){
 		if(typeof(oldCode)==='string'){
-			nukod=sp.toCode(options.jsName);
+			nukod=sp.toCode(options.jsName,options.typescript);
 			if(oldCode===nukod)return nukod;
 		}
-		sp.toFile(options.tgtFile,options.jsName,options.mute);
+		sp.toFile(options.tgtFile,options.jsName,options.mute,options.typescript);
 	}
 	return nukod;
 };
