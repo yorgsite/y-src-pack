@@ -53,7 +53,7 @@ And open the file **node_modules/y-src-pack/_test_src/test.html** in your browse
 	 for node : **undefined** (do not set),<br/>
  	 for json : **true**,<br/>
  	 for web : **string** as api root var name.
-	+ **typescript** : `boolean` (beta)<br/>
+	+ **typescript** : `boolean|undefined` (beta)<br/>
 	 compile as typescript API if true.
 
 `*` : At least one of **dir** or **glob** must be set.
